@@ -1,0 +1,10 @@
+- insert:
+    - id: dsh-atlas
+      name: dsh-atlas
+      config:
+        patrolTickMinutes: 30
+        patrolIntervalHours: 24
+        models:
+          overlap: {}
+          upstreamFix: {}
+          delegate: {}

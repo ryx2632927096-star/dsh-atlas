@@ -1,0 +1,56 @@
+{
+  "name": "dsh-atlas",
+  "version": "0.1.0",
+  "description": "DSH 插件知枢：本地会话索引、工具画像、踩坑库与补丁台账；可选模型能力使用 DSH 宿主配置。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "client.js",
+    "cordis.patch.yml",
+    "rescue.mjs",
+    "patches/known-patches.json",
+    "scripts/verify-default-model.mjs",
+    "scripts/verify-recovery-update.mjs",
+    "scripts/verify-ai-overlap.mjs",
+    "scripts/verify-llm.mjs",
+    "scripts/verify-llm-resolve.mjs",
+    "docs/update-recovery.md",
+    "docs/validation.md",
+    "THIRD_PARTY_NOTICES.md",
+    "licenses/dsh-liangshen-Apache-2.0.txt",
+    "LICENSE",
+    "README.md",
+    "scripts/verify-package.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "atlas",
+    "introspection"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "verify": "node scripts/verify-package.mjs && node scripts/verify-default-model.mjs && node scripts/verify-recovery-update.mjs && node scripts/verify-llm.mjs && node scripts/verify-llm-resolve.mjs && node scripts/verify-ai-overlap.mjs"
+  }
+}

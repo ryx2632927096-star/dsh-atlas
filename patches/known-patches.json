@@ -1,0 +1,64 @@
+[
+  {
+    "id": "liangshen-burst",
+    "severity": "low",
+    "target": "profile:@linxin666/dsh-liangshen/lib/client.js",
+    "marker": "liangshen-burst removed locally",
+    "manual": false,
+    "name": "梁神模式横幅显示",
+    "why": "移除横幅挂载并保留开关。",
+    "anchor": "burstKey !== 0 && [^\\n]*",
+    "replace": "null /* liangshen-burst removed locally */",
+    "expect": "null /\\* liangshen-burst removed locally \\*/"
+  },
+  {
+    "id": "surfcore-whitelist",
+    "severity": "high",
+    "target": "surfcore-plugin:qq-tool-restrict.mjs",
+    "marker": "BRIDGE_MCP_BARE_PREFIXES",
+    "name": "桥接工具授权检查",
+    "why": "需由部署管理员按受信任的服务器标识和工具权限复核。",
+    "manual": true
+  },
+  {
+    "id": "surfcore-health",
+    "severity": "low",
+    "target": "surfcore:src/dsh-health.js",
+    "marker": "readMcpManagerServers",
+    "manual": true,
+    "name": "MCP 服务健康检查",
+    "why": "检查报告是否使用当前服务配置。",
+    "anchor": "const REQUIRED_MCP_IDS\\s*="
+  },
+  {
+    "id": "surfcore-setup",
+    "severity": "low",
+    "target": "surfcore:scripts/setup-dsh.mjs",
+    "marker": "resolveDshCmd",
+    "manual": true,
+    "name": "启动器与备份保留",
+    "why": "检查启动器定位和备份排序。",
+    "anchor": "const cmd = windows \\? \\(process\\.env\\.ComSpec"
+  },
+  {
+    "id": "snowluma-windowshide",
+    "severity": "medium",
+    "target": "snowluma:index.mjs",
+    "marker": "windowsHide: true",
+    "manual": false,
+    "name": "Windows 子进程窗口",
+    "why": "避免后台子进程创建可见终端。",
+    "anchor": "SNOWLUMA_UPDATE_ROOT: root\\s*\\n\\s*\\}",
+    "insertAfter": ",\nwindowsHide: true"
+  },
+  {
+    "id": "surfcore-snowluma-lock",
+    "severity": "high",
+    "target": "surfcore-plugin:lib/index.js",
+    "marker": "本地补丁 #7",
+    "manual": true,
+    "name": "启动互斥检查",
+    "why": "检查服务启动时的并发控制。",
+    "anchor": "async function maybeStartQqChain\\(\\) \\{"
+  }
+]
