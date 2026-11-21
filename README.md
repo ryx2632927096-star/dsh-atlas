@@ -2,11 +2,21 @@
 
 Atlas 在 DeepSeek Harness 中建立本地工具和插件索引，查看工具使用情况、插件能力重叠、补丁状态与更新记录。需要调用模型的功能使用宿主的 LLM 服务。
 
+## 从 npm 安装到 DSH
+
+在终端运行下面的命令。把 `web` 换成你实际使用的 DSH profile。DSH 会安装依赖并登记插件 bundle，重新加载该 profile 后生效。
+
+```powershell
+dsh plugin --profile web add @r-xuan/dsh-atlas
+```
+
+如果这个 profile 已经链接了旧版 `dsh-atlas`，请先移除旧的 bundle 登记和依赖，再安装新包，以免重复加载。
+
 ## 安装到独立 profile
 
 准备 Node.js 24.9 或更高版本和已安装的 DSH CLI。克隆此仓库后，先在仓库根目录执行 `npm run verify`。
 
-在目标 profile 的 `package.json` 中，将 `dependencies["dsh-atlas"]` 指向 `link:<本仓库绝对路径>`，并在 `dsh.profile.bundles` 数组中加入 `dsh-atlas`。保留该 profile 的已有项。使用对应宿主的插件包管理器落实链接。确认该 profile 含 `tools` 与 `webServer` 服务后，按宿主的正常方式加载。包内的 `cordis.patch.yml` 会注册插件一次。桌面版的安装入口随发行版而异。
+在目标 profile 的 `package.json` 中，将 `dependencies["@r-xuan/dsh-atlas"]` 指向 `link:<本仓库绝对路径>`，并在 `dsh.profile.bundles` 数组中加入 `@r-xuan/dsh-atlas`。保留该 profile 的已有项。使用对应宿主的插件包管理器落实链接。确认该 profile 含 `tools` 与 `webServer` 服务后，按宿主的正常方式加载。包内的 `cordis.patch.yml` 会注册插件一次。桌面版的安装入口随发行版而异。
 
 ## 使用
 

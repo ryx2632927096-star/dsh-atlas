@@ -1,6 +1,6 @@
 - insert:
     - id: dsh-atlas
-      name: dsh-atlas
+      name: "@r-xuan/dsh-atlas"
       config:
         patrolTickMinutes: 30
         patrolIntervalHours: 24

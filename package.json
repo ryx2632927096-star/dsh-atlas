@@ -1,5 +1,5 @@
 {
-  "name": "dsh-atlas",
+  "name": "@r-xuan/dsh-atlas",
   "version": "0.1.0",
   "description": "DSH 插件知枢：本地会话索引、工具画像、踩坑库与补丁台账；可选模型能力使用 DSH 宿主配置。",
   "type": "module",
@@ -52,5 +52,13 @@
   "license": "MIT",
   "scripts": {
     "verify": "node scripts/verify-package.mjs && node scripts/verify-default-model.mjs && node scripts/verify-recovery-update.mjs && node scripts/verify-llm.mjs && node scripts/verify-llm-resolve.mjs && node scripts/verify-ai-overlap.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryx2632927096-star/dsh-atlas.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
